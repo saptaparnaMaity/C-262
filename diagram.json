@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "author": "Bijoya Chowdhury",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      {
+        "type": "wokwi-pir-motion-sensor",
+        "id": "pir1",
+        "top": 21.96,
+        "left": 142.49,
+        "attrs": { "delayTime": "1" }
+      },
+      {
+        "type": "wokwi-led-ring",
+        "id": "ring1",
+        "top": -26.72,
+        "left": 245.16,
+        "attrs": { "pixels": "16" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+      [ "pir1:VCC", "esp:3V3", "red", [ "v0" ] ],
+      [ "pir1:OUT", "esp:D15", "green", [ "v0" ] ],
+      [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+      [ "ring1:GND", "esp:GND.2", "black", [ "v86.05", "h-309.65", "v-64.67" ] ],
+      [ "ring1:VCC", "esp:VIN", "red", [ "v110.05", "h-339.25", "v-75.33" ] ],
+      [ "ring1:DIN", "esp:D13", "green", [ "v126.71", "h-362.19", "v-112" ] ]
+    ],
+    "serialMonitor": { "display": "plotter" }
+  }
